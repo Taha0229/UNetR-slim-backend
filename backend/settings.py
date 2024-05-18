@@ -63,6 +63,10 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https:\/\/127.0.0.1:*([0-9]+)?$",   
 ]
 
+CORS_ALLOWED_ORIGIN = [
+    "http://localhost:3000"
+]
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
