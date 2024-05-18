@@ -21,3 +21,4 @@ def run_prediction(request, *args, **kwargs):
         predict.predict(filename=file_name)
         output_encoded = encodeImageIntoBase64(file_name)
         return Response({"output": output_encoded})
+    
