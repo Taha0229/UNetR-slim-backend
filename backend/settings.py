@@ -56,10 +56,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "backend.urls"
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:3001",
-    "http://127.0.0.1:3000"
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^http:\/\/localhost:*([0-9]+)?$",
+    r"^https:\/\/localhost:*([0-9]+)?$",
+    r"^http:\/\/127.0.0.1:*([0-9]+)?$",
+    r"^https:\/\/127.0.0.1:*([0-9]+)?$",   
 ]
 
 TEMPLATES = [
