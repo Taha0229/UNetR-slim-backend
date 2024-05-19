@@ -86,16 +86,16 @@ jobs:
         run: |
          docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
          
-      - name: Stop and remove container if running
-        run: |
-         docker ps -q --filter "name=unetr" | grep -q . && docker stop unetr && docker rm -fv unetr
+      # - name: Stop and remove container if running
+      #   run: |
+      #    docker ps -q --filter "name=unetr" | grep -q . && docker stop unetr && docker rm -fv unetr
        
       # - name: Run Docker Image to serve users
       #   run: |
       #    docker run -d -p 8000:8000 --name=unetr -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}'  ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
       - name: Run Docker Compose
         run: |
-         docker-compose up 
+         docker compose up 
       - name: Clean previous images and containers
         run: |
          docker system prune -f
