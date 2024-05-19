@@ -64,7 +64,8 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
 ]
 
 CORS_ALLOWED_ORIGIN = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "https://unetr-frontend.vercel.app",
 ]
 
 TEMPLATES = [
