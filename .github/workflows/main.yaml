@@ -88,7 +88,7 @@ jobs:
          
       - name: Stop and remove container if running
         run: |
-         docker ps -q --filter "name=unetr" | grep -q . && docker stop unetr && docker rm -fv unetr
+         docker ps -q --filter "name=unetr-slim-backend-server-1" | grep -q . && docker stop unetr-slim-backend-server-1 && docker rm -fv unetr-slim-backend-server-1
        
       # - name: Run Docker Image to serve users
       #   run: |
