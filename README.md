@@ -22,10 +22,18 @@ In this module, I have shown, how to develop and delpoy the backend using the me
 4. AWS EC2:
 5. AWS ECR:
 
+# How it works?
+1. The `/inference/` route only accepts `POST` requests.
+2. Incoming data is validated. If valid, processing continues; otherwise, `a Missing data in POST Request` response with a status code of 400 is sent.
+3. The incoming data is processed by separating the Base64 image string and image name.
+4. The `decodeImage()` function decodes the image and stores it in the `unetr_model_output\decode` directory. The function requires Base64 string and image name.
+5. A prediction pipeline is instantiated, and the image name is passed to the instance. It automatically selects the decoded image based on the image name, performs inference on it, and stores the result in the `unetr_model_output\predict` directory.
+6. The inferred image is encoded using the `encodeImageIntoBase64()` function to send the response to the client. The function take image name as its parameter and automatically picks the inferred image.
+
 ## Workflow
 
 **Workflow for implementing from scratch:**
-1. Setup up Djago REST Framework (from step 1-9)
+1. Setup Django REST Framework (from step 1-9)
 2. Setup Docker (step 10)
 3. Setup GitHub Workflows (step 11)
 4. Setup AWS 
@@ -33,7 +41,7 @@ In this module, I have shown, how to develop and delpoy the backend using the me
 6. Setup Outbound Rules
 
 **Workflow for implementing by cloning:**
-1. Setup up Djago REST Framework (from step 1-4)
+1. Setup Django REST Framework (from step 1-4)
 2. Setup AWS 
 3. Setup GitHub Actions
 4. Setup Outbound Rules
